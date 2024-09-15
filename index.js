@@ -4,11 +4,7 @@ const {
   writeExistingFile,
   setXMLAttributes,
 } = require("./utils/utils");
-const {
-  paths,
-  akbModificationValues,
-  abModificationValues,
-} = require("./constants/contants");
+const { xmlFileInfo } = require("./constants/constants");
 
 const parseAndReplaceFile = async (path, properties) => {
   const parsedXml = await parseXML({ filePath: path });
@@ -22,22 +18,10 @@ const parseAndReplaceFile = async (path, properties) => {
 };
 
 const main = () => {
-  const { akbPath, abPath } = paths;
-  const willBeProcessedFiles = [
-    {
-      path: akbPath,
-      successMessage: "akb modification completed successfully",
-      properties: akbModificationValues,
-    },
-    {
-      path: abPath,
-      successMessage: "ab modification completed successfully",
-      properties: abModificationValues,
-    },
-  ];
+  const willBeProcessedFiles = Object.values(xmlFileInfo);
 
   willBeProcessedFiles.forEach((fileInfo) => {
-    parseAndReplaceFile(fileInfo?.path, fileInfo?.properties)
+    parseAndReplaceFile(fileInfo?.path, fileInfo?.modificationValues)
       .then(() => {
         console.log(fileInfo?.successMessage);
       })

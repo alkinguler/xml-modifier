@@ -3,7 +3,7 @@ const fs = require("fs");
 const _ = require("lodash");
 
 const parseXML = async ({ filePath }) => {
-  const parser = xml2js.Parser();
+  const parser = new xml2js.Parser({ trim: true });
   return await new Promise((resolve, reject) => {
     fs.readFile(filePath, (err, data) => {
       if (err) {

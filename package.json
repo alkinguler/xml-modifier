@@ -5,9 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-env1": "node --env-file=.env.env1 --env-file=.env ./index.js",
-    "debug-env1": "node --inspect-brk --env-file=.env.env1 --env-file=.env ./index.js",
+    "debug-env1": "node --inspect --env-file=.env.env1 --env-file=.env ./index.js",
     "start-env2": "node --env-file=.env.env2 --env-file=.env ./index.js",
-    "debug-env2": "node --inspect-brk --env-file=.env.env2 --env-file=.env ./index.js"
+    "debug-env2": "node --inspect --env-file=.env.env2 --env-file=.env ./index.js"
   },
   "keywords": [],
   "author": "",
@@ -15,9 +15,13 @@
   "description": "",
   "dependencies": {
     "dotenv": "^16.4.5",
-    "loadash": "^1.0.0",
     "lodash": "^4.17.21",
     "prettier": "^3.3.3",
     "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.10.0",
+    "eslint": "^9.10.0",
+    "globals": "^15.9.0"
   }
 }
